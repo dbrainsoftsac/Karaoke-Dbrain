@@ -1,0 +1,17 @@
+<%= simple_form_for(@evento) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :no_evento , :required => 'required' %>
+    
+    <%= f.collection_select :Local_id, Local.order(:no_local), :id, :no_local, {prompt: "Selecione un local"}, {class: "form-control"} %>
+
+    <%= f.input :fe_fecha_evento , :required => 'required'%>
+    <%= f.input :qt_capacidad , :required => 'required', type:'number'%>
+    <%= f.input :tx_descripcion_evento , :required => 'required'%>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

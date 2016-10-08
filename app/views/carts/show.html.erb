@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-xs-3">
+      <p>Detalle de pedido</p>
+  </div>
+
+  <div class="col-xs-9 text-right">
+  	
+  	<%= link_to "Regresar", products_path ,  { :class=>"btn btn-primary btn-md" }  %>  
+
+    <button class="btn btn-success md">Cerrar Pedido</button> 
+  </div>
+  
+</div>
+
+
+<div class="shopping-cart">
+  <%= render "shopping_cart" %>
+</div>

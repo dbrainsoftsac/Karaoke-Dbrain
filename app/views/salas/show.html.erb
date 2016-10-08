@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @sala.Local %>
+</p>
+
+<p>
+  <strong>Nombre sala:</strong>
+  <%= @sala.no_sala %>
+</p>
+
+<p>
+  <strong>Capacidad:</strong>
+  <%= @sala.qt_capacidad %>
+</p>
+
+<p>
+  <strong>Descripción:</strong>
+  <%= @sala.tx_sala_descripcion %>
+</p>
+
+<%= link_to 'Editar', edit_sala_path(@sala) %> |
+<%= link_to 'Regresar', salas_path %>

@@ -1,0 +1,18 @@
+<%= simple_form_for(@usuario) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.collection_select :TipoUsuario_id, TipoUsuario.order(:no_tipo_usuario), :id, :no_tipo_usuario, {prompt: "Selecione un tipo"}, {class: "form-control"} %>
+    
+    <%= f.input :no_usuario %>
+    
+    <%= f.input :no_apellido_paterno %>
+    <%= f.input :no_apellido_materno %>
+    <%= f.input :no_dni %>
+    <%= f.input :email %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

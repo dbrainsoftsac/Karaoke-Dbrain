@@ -1,0 +1,209 @@
+<html>
+  <header>
+    <title>KraoQ</title>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<% if request.ssl? %>
+<%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+<%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+<% else %> 
+<%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+<%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+<% end %>
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+<%= csrf_meta_tags %>
+
+  </header>
+ 
+  
+
+  <style>
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:200,300");
+
+body {
+	background: url('http://brigetts.com/hackiqsolutions/uploads/2015/01/karaoke-night.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	color:#fff;
+  	background-color:#333;
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+}
+
+a:link, a:visited {
+	color:#eee;
+}
+
+.block {
+	background-color:rgba(0,0,0,0.2);
+    height:370px;
+  	padding-left:12px;
+  	padding-right:12px;
+}
+
+.block-sm {
+    height:180px;
+}
+
+.btn-flat {
+  	font-family: 'Open Sans',Arial,Helvetica,Sans-Serif;
+	border-radius:0px;
+  	border-width:0;
+  	background-image:none;
+  	padding:16px;
+  	margin:0 auto;
+  	margin-top:15px;
+  	width:70%;
+    font-size:20pt;
+}
+
+/* mini carousel */
+.carousel-inner img {
+	width:100%;
+  	height:100%;
+}
+
+#myCarousel {
+	font-size:90%;
+}
+
+.carousel-controls-mini {
+	margin-left:42%;
+}
+
+.carousel-controls-mini > a {
+	border:1px solid #eee;
+  	margin:1px;
+  	width:20px;
+    display:block;
+  	float:left;
+    text-align:center;
+}
+
+h4  { color: black; }
+
+
+
+#carousel-bounding-box {
+  margin:0 auto;
+  width:300px;
+}
+  </style>
+<body>
+ 
+<div class="container">
+  <h1>Bienvenido a la mejor experiencia en Karaokes</h1>
+<div class="row">
+  
+    <div class="col-md-12">
+      <div class="row">
+        <div class="col-md-10">
+          <img src="https://dl.dropboxusercontent.com/u/56023444/karaoke/karaoke-160752_640.png">
+        </div>
+         <div class="col-md-2">
+
+         
+    <i class="icon-plus icon-white"></i>
+  </button>
+
+  		    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-backdrop="false" onclick="abrir(); return false;" >
+    			Iniciar Sesión
+  			</button>
+
+           
+         </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-12">
+          <p>Creado por D-BrainSoft</p>
+        </div>
+      </div>
+    </div>
+    
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1"  role="dialog">
+  <div class="modal-dialog">
+  
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+        <h4 class="modal-title">Unase a nuestra red</h4>
+      </div>
+      
+      <div class="modal-body"> 
+        <div class="row">
+          
+        <div class="col-md-12">
+        <div class="row">
+        <div class="col-md-6">
+	        <h4>Iniciar sesión con:</h4>
+	        <%= link_to new_local_path, class: 'btn btn-info' do %>
+	        <span class="glyphicon glyphicon glyphicon-heart-empty"></span>
+	        Conectar con Twitter &nbsp;&nbsp;&nbsp;&nbsp;
+	        <% end %>
+	        <p></p>
+	        <p></p>
+	        <%= link_to new_local_path, class: 'btn btn-primary' do %>
+	        <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>
+	        Conectar con Facebook
+	        <% end %>
+	        <p></p>
+	        <p></p>
+	        <%= link_to new_local_path, class: 'btn btn-danger' do %>
+	        <span class="glyphicon glyphicon-plus"></span>
+	        Conectar con Google +&nbsp;
+	        <% end %>
+        </div>
+
+        <div class="col-md-6">
+	        <h4>O Registrese:</h4>
+	        <%= link_to new_user_session_path, class: 'btn btn-success' do %>
+	        <span class="glyphicon glyphicon glyphicon-envelope"  ></span>
+	        No uso redes sociales&nbsp;&nbsp;&nbsp;
+	        <% end %>
+	        </div>
+        </div>
+        
+        </div>
+      
+        </div>
+      </div>
+          
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" data-backdrop="false">Cerrar</button>
+      </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
+</div>
+
+<footer class="footer">
+      <div class="container">
+        <p class="text-muted">Todos los derechos reservados.</p>
+      </div>
+</footer>
+    
+  <script>
+
+  function abrir() {
+  	$('#myModal').modal('show');
+  } 
+
+	$("#myModal").modal('show');
+    $(".navbar").hide(); 
+    $(".modal-backdrop").remove(); 
+	 
+  </script>
+  
+ </body>
+<html>

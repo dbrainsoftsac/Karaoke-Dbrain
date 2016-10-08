@@ -1,0 +1,18 @@
+<%= simple_form_for(@item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name , :required => 'required' %>
+    <%= f.input :price , :required => 'required' %>
+    <%= f.input :active  %>
+    
+
+    <%= f.collection_select :tipo_producto_id, TipoProducto.order(:no_tipo_producto), :id, :no_tipo_producto, {prompt: "Selecione un tipo"}, {class: "form-control"} %>
+
+  </div>
+
+<br/>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

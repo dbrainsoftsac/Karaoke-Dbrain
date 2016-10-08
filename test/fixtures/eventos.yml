@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  no_evento: MyText
+  Local_id: 
+  fe_fecha_evento: 2016-09-28 22:21:56
+  qt_capacidad: 1
+  tx_descripcion_evento: MyText
+
+two:
+  no_evento: MyText
+  Local_id: 
+  fe_fecha_evento: 2016-09-28 22:21:56
+  qt_capacidad: 1
+  tx_descripcion_evento: MyText
