@@ -36,24 +36,7 @@
 
 
   <script type="text/javascript">
-    
-    $("#search").on("keyup", function() {
-      var value = $(this).val();
-
-      $("table tbody tr").each(function(index) {
-          if (index !== 0) {
-
-              $row = $(this);
-
-              var id = $row.find("td:first").text();
-
-              if (id.indexOf(value) !== 0) {
-                  $row.hide();
-              }
-              else {
-                  $row.show();
-              }
-          }
-      });
+  $("#search").on("keyup", function() {
+    searchTable($(this).val());
   });
   </script>
