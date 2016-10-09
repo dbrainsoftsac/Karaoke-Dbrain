@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161008224746) do
+ActiveRecord::Schema.define(version: 20161009045048) do
 
   create_table "artista", force: :cascade do |t|
     t.string   "no_artista"
@@ -124,6 +124,22 @@ ActiveRecord::Schema.define(version: 20161008224746) do
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
+
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "reserved_at"
+    t.integer  "seats"
+    t.integer  "status"
+    t.boolean  "waiting_allowed"
+    t.integer  "user_id"
+    t.integer  "local_id"
+    t.integer  "sala_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "reservations", ["local_id"], name: "index_reservations_on_local_id"
+  add_index "reservations", ["sala_id"], name: "index_reservations_on_sala_id"
+  add_index "reservations", ["user_id"], name: "index_reservations_on_user_id"
 
   create_table "salas", force: :cascade do |t|
     t.integer  "Local_id"

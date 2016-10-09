@@ -60,7 +60,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">KraoQ</a>
+        <a class="navbar-brand" href="#">KraoQ - User</a>
 
         <div class="navbar-collapse collapse navbar-responsive-collapse">
   
@@ -68,6 +68,7 @@
   <% if current_user %>
 
     <ul class="nav navbar-nav">
+    <li><%= link_to "Mis Reservas", reservations_path  %></li>             
     <li><%= link_to "Hacer Pedido", products_path  %></li>       
     </ul>
 

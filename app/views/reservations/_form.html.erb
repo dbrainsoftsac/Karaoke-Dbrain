@@ -1,0 +1,38 @@
+<%= simple_form_for(@reservation) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+   <%= f.collection_select :sala_id, Sala.order(:no_sala), :id, :no_sala, {prompt: "Selecione un sala"}, {:required => 'required', class: "form-control"} %>
+  <br>
+  <%= f.collection_select :local_id, Local.order(:no_local), :id, :no_local, {prompt: "Selecione un local"}, {:required => 'required', class: "form-control"} %>
+  <br>
+
+  <%= f.input :reserved_at , :required => 'required' %>
+  <%= error_span(@reservation[:reserved_at]) %>
+
+
+  <%= f.input :seats, collection: 1..10, default: 1 %>
+  <%= error_span(@reservation[:seats]) %>
+
+  <%= f.label :status %>
+  <%= f.object.status.titleize %>
+
+
+  <%= error_span(@reservation[:status]) %>
+
+  <%= error_span(@reservation[:user_id]) %>
+
+  <%= f.input :waiting_allowed, label: "Allow inclusion in Waiting List before rejection" %>
+
+  <%= error_span(@reservation[:waiting_allowed]) %>
+  
+
+  </div>
+
+  <div class="form-actions">
+      <%= f.button :submit, :class => 'btn-primary' %>
+
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")), reservations_path, :class => 'btn btn-default' %>
+  </div>
+<% end %>

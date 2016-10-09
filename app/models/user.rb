@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
 
 
-         has_one :profile
+has_one :profile
 
 enum role: [:user, :operator, :tiuser, :admin]
 

@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lista de Reservas</h1>
+
+
+<input type="text" id="search" placeholder="Búsqueda" class="form-control"></input>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Reserved at</th>
+      <th>Seats</th>
+      <th>Status</th>
+      <th>Waiting allowed</th>
+      <th>User</th>
+      <th>Local</th>
+      <th>Sala</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.reserved_at %></td>
+        <td><%= reservation.seats %></td>
+        <td><%= reservation.status %></td>
+        <td><%= reservation.waiting_allowed %></td>
+        <td><%= reservation.user.email %></td>
+        <td><%= reservation.local.no_local %></td>
+        <td><%= reservation.sala.no_sala %></td>
+        <td><%= link_to 'Ver', reservation %></td>
+        <td><%= link_to 'Editar', edit_reservation_path(reservation) %></td>
+        <td><%= link_to 'Eliminar', reservation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'Nueva Reserva', new_reservation_path , :class => 'btn btn-default'  %>
+
+
+<script type="text/javascript">
+
+  $("#search").on("keyup", function() {
+    searchTable($(this).val());
+  });
+
+</script>
+

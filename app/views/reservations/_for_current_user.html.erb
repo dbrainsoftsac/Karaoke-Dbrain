@@ -1,0 +1,66 @@
+<%- model_class = Reservation -%>
+
+<div class="page-header">
+
+ 
+
+<%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+
+
+</div><table class="table table-striped">
+
+  <thead>
+
+    <tr>
+
+      <th><%= model_class.human_attribute_name(:id) %></th>
+
+      <th><%= model_class.human_attribute_name(:reserved_at) %></th>
+
+      <th><%= model_class.human_attribute_name(:seats) %></th>
+
+      <th><%= model_class.human_attribute_name(:status) %></th>
+
+      <th><%= model_class.human_attribute_name(:waiting_allowed) %></th>
+
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <% Reservation.from_user(current_user).uncancelled.each do |reservation| %>
+
+      <tr>
+
+        <td><%= link_to reservation.id, reservation_path(reservation) %><td>
+
+        <td><%= reservation.reserved_at %><td>
+
+        <td><%= reservation.seats %><td>
+
+        <td><%= reservation.status.titleize %><td>
+
+        <td><%= reservation.waiting_allowed %><td>
+
+       <td><%=l reservation.created_at %><td>
+
+        <td>
+
+          <%= link_to t('.destroy', :default => 'Cancel'), reservation_path(reservation),  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs btn-danger' %>
+
+        </td>
+
+      </tr>
+
+    <% end %>
+
+</tbody>
+
+</table>
+<%= link_to t('.new', :default => t("helpers.links.new")), new_reservation_path, :class => 'btn btn-primary' %>
+

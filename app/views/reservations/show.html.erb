@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reserved at:</strong>
+  <%= @reservation.reserved_at %>
+</p>
+
+<p>
+  <strong>Seats:</strong>
+  <%= @reservation.seats %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @reservation.status %>
+</p>
+
+<p>
+  <strong>Waiting allowed:</strong>
+  <%= @reservation.waiting_allowed %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @reservation.user.email %>
+</p>
+
+<p>
+  <strong>Local:</strong>
+  <%= @reservation.local.no_local %>
+</p>
+
+<p>
+  <strong>Sala:</strong>
+  <%= @reservation.sala.no_sala %>
+</p>
+
+<%= link_to 'Edit', edit_reservation_path(@reservation) , :class => 'btn btn-default' %> |
+<%= link_to 'Back', reservations_path , :class => 'btn btn-default' %>
