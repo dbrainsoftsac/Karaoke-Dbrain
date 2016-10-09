@@ -6,7 +6,7 @@
 	<%= f.text_field :email, :readonly=>true %> 
  
  
-   <%= f.select :role, User.roles.keys , {prompt: "Selecione un artista"}, {class: "form-control"} %>
+   <%= f.select :role, User.roles.keys , {prompt: "Selecione un artista"}, {:required => 'required', class: "form-control"} %>
 
  
   </div>

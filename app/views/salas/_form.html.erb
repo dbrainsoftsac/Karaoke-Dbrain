@@ -3,7 +3,7 @@
 
   <div class="form-inputs"> 
 
-      <%= f.collection_select :Local_id, Local.order(:no_local), :id, :no_local, {prompt: "Selecione un local"}, {class: "form-control"} %>
+      <%= f.collection_select :Local_id, Local.order(:no_local), :id, :no_local, {prompt: "Selecione un local"}, {:required => 'required', class: "form-control"} %>
 
 
     <%= f.input :no_sala , :required => 'required'  %>

@@ -4,7 +4,7 @@
   <div class="form-inputs">
  
 
-	<%= f.collection_select :artist_id, Artist.order(:no_artista), :id, :no_artista, {prompt: "Selecione un artista"}, {class: "form-control"} %>
+	<%= f.collection_select :artist_id, Artist.order(:no_artista), :id, :no_artista, {prompt: "Selecione un artista"}, {:required => 'required', class: "form-control"} %>
 
     <%= f.input :no_cancion , :required => 'required'%>
     
