@@ -2,6 +2,8 @@
 
 <h1>Lista Salas</h1>
 
+<input type="text" id="search" placeholder="Búsqueda" class="form-control"></input>
+
 <div class="table-responsive">
   <table class="table table-striped table-bordered table-hover">
   <thead>
@@ -21,9 +23,9 @@
         <td><%= sala.no_sala %></td>
         <td><%= sala.qt_capacidad %></td>
         <td><%= sala.tx_sala_descripcion %></td>
-        <td><%= link_to 'Show', sala %></td>
-        <td><%= link_to 'Edit', edit_sala_path(sala) %></td>
-        <td><%= link_to 'Destroy', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', sala %></td>
+        <td><%= link_to 'Editar', edit_sala_path(sala) %></td>
+        <td><%= link_to 'Eliminar', sala, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +34,29 @@
 
 <br>
 
-<%= link_to 'New Sala', new_sala_path %>
+<%= link_to 'Nueva Sala', new_sala_path %>
+
+
+
+  <script type="text/javascript">
+    
+    $("#search").on("keyup", function() {
+      var value = $(this).val();
+
+      $("table tbody tr").each(function(index) {
+          if (index !== 0) {
+
+              $row = $(this);
+
+              var id = $row.find("td:first").text();
+
+              if (id.indexOf(value) !== 0) {
+                  $row.hide();
+              }
+              else {
+                  $row.show();
+              }
+          }
+      });
+  });
+  </script>
