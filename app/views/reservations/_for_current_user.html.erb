@@ -7,23 +7,23 @@
 <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
 
 
-</div><table class="table table-striped">
+</div><table class="table table-striped table-bordered table-hover">
 
   <thead>
 
     <tr>
 
-      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th>ID</th>
 
-      <th><%= model_class.human_attribute_name(:reserved_at) %></th>
+      <th>Fecha de reserva</th>
 
-      <th><%= model_class.human_attribute_name(:seats) %></th>
+      <th>Lugares</th>
 
-      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th>Estado</th>
 
-      <th><%= model_class.human_attribute_name(:waiting_allowed) %></th>
+      <th>Espera</th>
 
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th>Fecha creación</th>
 
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
 
@@ -37,17 +37,17 @@
 
       <tr>
 
-        <td><%= link_to reservation.id, reservation_path(reservation) %><td>
+        <td><%= link_to reservation.id, reservation_path(reservation) %></td>
 
-        <td><%= reservation.reserved_at %><td>
+        <td><%= reservation.reserved_at %></td>
 
-        <td><%= reservation.seats %><td>
+        <td><%= reservation.seats %></td>
 
-        <td><%= reservation.status.titleize %><td>
+        <td><%= reservation.status.titleize %></td>
 
-        <td><%= reservation.waiting_allowed %><td>
+        <td><%= reservation.waiting_allowed %></td>
 
-       <td><%=l reservation.created_at %><td>
+       <td><%=l reservation.created_at %></td>
 
         <td>
 

@@ -30,5 +30,6 @@
   <%= @local.co_administrador %>
 </p>
 
-<%= link_to 'Editar', edit_local_path(@local) %> |
-<%= link_to 'Regresar', locals_path %>
+<%= link_to 'Nuevo', new_local_path , :class => 'btn btn-default'%> |
+<%= link_to 'Editar', edit_local_path(@local) , :class => 'btn btn-default'%> |
+<%= link_to 'Regresar', locals_path , :class => 'btn btn-default'%>

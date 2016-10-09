@@ -7,12 +7,25 @@
     </ul>
   </div>
 <% end %>
+
 <% if @order_items.size == 0 %>
   <p class="text-center">
     Hay no hay artículos en su carrito de compras.  Por favor <%= link_to "Regresa", root_path %> y agrega algunos artículos a su pedido.
   </p>
 <% else %>
+  <% @caca = 0 %>
+
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+
+
+    <% @caca = @caca+ order_item.total_price %>
   <% end %>
+
+
+ <p class="text-right">Total: <span style="color: green"> <%= @caca %> </span></p>
+
+
+
+
 <% end %>

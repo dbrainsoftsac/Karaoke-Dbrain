@@ -3,9 +3,9 @@
 
   <div class="form-inputs">
 
-   <%= f.collection_select :sala_id, Sala.order(:no_sala), :id, :no_sala, {prompt: "Selecione un sala"}, {:required => 'required', class: "form-control"} %>
-  <br>
   <%= f.collection_select :local_id, Local.order(:no_local), :id, :no_local, {prompt: "Selecione un local"}, {:required => 'required', class: "form-control"} %>
+  <br>
+   <%= f.collection_select :sala_id, Sala.order(:no_sala), :id, :no_sala, {prompt: "Selecione un sala"}, {:required => 'required', class: "form-control"} %>
   <br>
 
   <%= f.input :reserved_at , :required => 'required' %>

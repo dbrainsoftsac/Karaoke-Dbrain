@@ -20,5 +20,6 @@
   <%= @sala.tx_sala_descripcion %>
 </p>
 
-<%= link_to 'Editar', edit_sala_path(@sala) %> |
-<%= link_to 'Regresar', salas_path %>
+<%= link_to 'Nuevo', new_sala_path , :class => 'btn btn-default'%> |
+<%= link_to 'Editar', edit_sala_path(@sala) , :class => 'btn btn-default'%> |
+<%= link_to 'Regresar', salas_path , :class => 'btn btn-default'%>

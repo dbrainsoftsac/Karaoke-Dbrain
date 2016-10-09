@@ -18,16 +18,14 @@
     <% @artists.each do |artist| %>
       <tr>
         <td><%= artist.no_artista %></td>
-        <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', artist %></td>
+        <td><%= link_to 'Editar', edit_artist_path(artist) %></td>
+        <td><%= link_to 'Eliminar', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-</div>
-
-<br>
+</div> 
 
 <%= link_to 'Nuevo Artista', new_artist_path , :class => 'btn btn-default' %>
 

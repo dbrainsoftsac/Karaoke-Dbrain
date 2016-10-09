@@ -20,5 +20,6 @@
   <%= @item.tipo_producto.no_tipo_producto %>
 </p>
 
-<%= link_to 'Editar', edit_item_path(@item) %> |
-<%= link_to 'Regresar', items_path %>
+<%= link_to 'Nuevo', new_item_path, :class => 'btn btn-default'  %> |
+<%= link_to 'Editar', edit_item_path(@item), :class => 'btn btn-default'  %> |
+<%= link_to 'Regresar', items_path , :class => 'btn btn-default' %>
