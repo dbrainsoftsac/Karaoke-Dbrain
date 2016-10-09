@@ -9,10 +9,11 @@ class Order < ActiveRecord::Base
   end
 private
   def set_order_status
-    self.order_status_id = 1
+    self.order_status_id = 1 
+    self.users_id = current_user.id ;
   end
 
   def update_subtotal
-    self[:subtotal] = subtotal
+    self[:subtotal] = subtotal 
   end
 end

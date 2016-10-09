@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006015034) do
+ActiveRecord::Schema.define(version: 20161008224746) do
 
   create_table "artista", force: :cascade do |t|
     t.string   "no_artista"
@@ -95,20 +95,24 @@ ActiveRecord::Schema.define(version: 20161006015034) do
     t.integer  "order_status_id"
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+    t.integer  "users_id"
   end
 
   add_index "orders", ["order_status_id"], name: "index_orders_on_order_status_id"
+  add_index "orders", ["users_id"], name: "index_orders_on_users_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "price",            precision: 12, scale: 3
+    t.decimal  "price"
     t.boolean  "active"
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
-    t.integer  "tipoproductos_id"
+    t.integer  "local_id"
+    t.integer  "tipo_producto_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "products", ["tipoproductos_id"], name: "index_products_on_tipoproductos_id"
+  add_index "products", ["local_id"], name: "index_products_on_local_id"
+  add_index "products", ["tipo_producto_id"], name: "index_products_on_tipo_producto_id"
 
   create_table "profiles", force: :cascade do |t|
     t.string   "first_name"
